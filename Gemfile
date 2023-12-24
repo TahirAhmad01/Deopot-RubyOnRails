@@ -71,3 +71,5 @@ group :test do
   gem "selenium-webdriver"
   gem "bcrypt", "~> 3.1.7"
 end
+
+gem "pg", "~> 1.5", :group => :production

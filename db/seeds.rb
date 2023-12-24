@@ -17,3 +17,5 @@ right away.
   image_url: 'maapis.jpg',
   price: 24.95
 )
+
+User.create! name: 'abc', password: "123"
