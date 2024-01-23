@@ -1,12 +1,5 @@
-#---
-# Excerpted from "Agile Web Development with Rails 7",
-# published by The Pragmatic Bookshelf.
-# Copyrights apply to this code. It may not be used to create training material,
-# courses, books, articles, and the like. Contact us if you are in doubt.
-# We make no guarantees that this code is fit for any purpose.
-# Visit https://pragprog.com/titles/rails7 for more book information.
-#---
 class CartsController < ApplicationController
+  skip_before_action :authorize, only: %i[ create update destroy ]
   before_action :set_cart, only: %i[ show edit update destroy ]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
   # GET /carts or /carts.json
@@ -61,14 +54,15 @@ class CartsController < ApplicationController
     session[:cart_id] = nil
 
     respond_to do |format|
-      format.html { redirect_to store_index_url, notice: 'Your cart is currently empty' }
+      format.html { redirect_to store_index_url,
+                                notice: 'Your cart is currently empty' }
       format.json { head :no_content }
     end
   end
 
   # ...
-
   private
+  # ...
 
   def set_cart
     @cart = Cart.find(params[:id])
@@ -78,7 +72,6 @@ class CartsController < ApplicationController
   def cart_params
     params.fetch(:cart, {})
   end
-
   def invalid_cart
     logger.error "Attempt to access invalid cart #{params[:id]}"
     redirect_to store_index_url, notice: 'Invalid cart'
