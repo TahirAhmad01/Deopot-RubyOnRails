@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  skip_before_action :authorize
+  skip_before_action :authorize, only: %i[ new create ]
 
   include CurrentCart
   before_action :set_cart, only: %i[ new create ]
@@ -31,6 +31,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
+        UsermailMailer.respond(@order).deliver_now
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
         ChargeOrderJob.perform_later(@order,pay_type_params.to_h)
@@ -79,7 +80,6 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:name, :address, :email, :pay_type)
   end
-  #...
 
   private
   def ensure_cart_isnt_empty
