@@ -1,9 +1,8 @@
 one:
   product: two
   cart: one
-  price: 11
+
 
 two:
   product: ruby
   order: one
-  price: 13
