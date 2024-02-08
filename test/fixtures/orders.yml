@@ -7,5 +7,5 @@ one:
 two:
   name: MyString
   address: MyText
-  email: MyString
+  email: abc@g.com
   pay_type: 1

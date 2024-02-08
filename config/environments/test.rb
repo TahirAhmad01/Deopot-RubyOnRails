@@ -64,16 +64,14 @@ Rails.application.configure do
   config.active_storage.service = :test
 
   # email configaration
-  Rails.application.configure do
-    config.action_mailer.delivery_method = :smtp
-    config.action_mailer.smtp_settings = {
-      address: "smtp.gmail.com",
-      port: 587,
-      domain: "domain.of.sender.net",
-      authentication: "plain",
-      user_name: "dave",
-      password: "secret",
-      enable_starttls_auto: true
-    }
-  end
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :user_name => 'cb8423058379ab',
+    :password => '19d92bcb8a55ff',
+    :address => 'sandbox.smtp.mailtrap.io',
+    :host => 'sandbox.smtp.mailtrap.io',
+    :port => '2525',
+    :authentication => :login
+  }
+  config.enable_reloading = true
 end
