@@ -15,6 +15,13 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should create cart" do
+    assert_difference('Cart.count') do
+      post carts_url, params: { cart: {  } }
+    end
+
+    assert_redirected_to cart_url(Cart.last)
+  end
 
   test "should show cart" do
     get cart_url(@cart)
@@ -32,10 +39,14 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy cart" do
-    assert_difference('Cart.count', -1) do
+    post line_items_url, params: { product_id: products(:ruby).id }
+    @cart = Cart.find(session[:cart_id])
+
+    assert_difference("Cart.count", -1) do
       delete cart_url(@cart)
     end
 
-    assert_redirected_to carts_url
+    assert_redirected_to store_index_url
   end
+
 end

@@ -1,20 +1,17 @@
 one:
-  title: MyString
-  description: MyText
+  title: cat
+  description: It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using
   image_url: https://i.ibb.co/xfZpJZM/brave-software-logo-B77-E610153-seeklogo-com.png
   price: 9.99
 
 two:
-  title: MyString
-  description: MyText
+  title: lorem
+  description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
   image_url: https://i.ibb.co/xfZpJZM/brave-software-logo-B77-E610153-seeklogo-com.png
   price: 9.99
 
 ruby:
   title: Programming Ruby 1.9
-  description:
-    Ruby is the fastest growing and most exciting dynamic
-    language out there.  If you need to get working programs
-    delivered fast, you should add Ruby to your toolbox.
+  description: Ruby is the fastest growing and most exciting dynamic language out there.  If you need to get working programs delivered fast, you should add Ruby to your toolbox.
   price: 49.50
   image_url: https://i.ibb.co/xfZpJZM/brave-software-logo-B77-E610153-seeklogo-com.png
